@@ -3,15 +3,19 @@ using System;
 
 namespace NovemberProjekt2021
 {
-    public class Fight2
+    public class Fight2 : Actor
     {
         public static bool FightTwo(Player player)
         {
-            foreach (Actor actor in Actor.actorQueue)
+            Player p = FindPlayer();
+
+            foreach (Actor actor in Actor.actorQueue) //tar bort alla saker i queue förutom player
             {
-                Actor.actorQueue.Dequeue();
+                if (actor != p)
+                {
+                    Actor.actorQueue.Dequeue();
+                }
             }
-            Actor.actorQueue.Enqueue(player);
             Actor.actorQueue.Enqueue(new Graper());
             Actor.actorQueue.Enqueue(new Graper());
             Actor.actorQueue.Enqueue(new Graper());

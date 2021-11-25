@@ -12,5 +12,17 @@ namespace NovemberProjekt2021
             return true;
             // 
         }
+
+        public static Player FindPlayer()
+        {
+            foreach (Actor actor in actorQueue)
+            {
+                if (actor is Player)
+                {
+                    return (Player)actor;
+                }
+            }
+            return null;
+        }
     }
 }
