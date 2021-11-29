@@ -4,6 +4,8 @@ namespace NovemberProjekt2021
 {
     public class FightManager
     {
+
+        static bool oneTime1 = true;
         public static bool firstFight = true;
         public static bool secondFight = false;
         public static bool thirdFight = false;
@@ -13,8 +15,6 @@ namespace NovemberProjekt2021
             if (firstFight) //om firstFight är true så startar fight1
             {
                 secondFight = FightOne();
-                System.Console.WriteLine("YES BOSS");
-                firstFight = false;
             }
 
             else if (secondFight && Player.player.GetHp() < 10)
@@ -38,8 +38,12 @@ namespace NovemberProjekt2021
 
         public static bool FightOne()
         {
-            Actor.actorQueue.Enqueue(new Graper());
-            Actor.actorQueue.Enqueue(new Tuna());
+            if (oneTime1)
+            {
+                Actor.actorQueue.Enqueue(new Graper());
+                Actor.actorQueue.Enqueue(new Tuna());
+                oneTime1 = false;
+            }
             return true;
         }
 

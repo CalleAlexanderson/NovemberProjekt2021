@@ -6,7 +6,6 @@ namespace NovemberProjekt2021
     public class Actor
     {
         public static Queue<Actor> actorQueue = new Queue<Actor>();
-        public static Actor currentActor = Actor.actorQueue.Dequeue(); //gör den längst fram i kön till currentActor
 
         public virtual bool TakeTurn()
         {

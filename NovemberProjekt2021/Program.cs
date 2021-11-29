@@ -13,18 +13,19 @@ namespace NovemberProjekt2021
 
             bool turnShouldEnd = true;
 
-            turnShouldEnd = Actor.currentActor.TakeTurn(); //håller kolla vems tur det är
+            Actor.actorQueue.Enqueue(new Actor());
+            Actor currentActor = Actor.actorQueue.Dequeue(); //gör den längst fram i kön till currentActor
+
 
             while (Player.player.GetHp() > 0)
             {
                 FightManager.Fights();
-
-
+                turnShouldEnd = currentActor.TakeTurn(); //håller kolla vems tur det är
 
                 if (turnShouldEnd) //endar en turn och lägger saken längst bak i kön
                 {
-                    Actor.actorQueue.Enqueue(Actor.currentActor);
-                    Actor.currentActor = Actor.actorQueue.Dequeue();
+                    Actor.actorQueue.Enqueue(currentActor);
+                    currentActor = Actor.actorQueue.Dequeue();
                 }
             }
         }
