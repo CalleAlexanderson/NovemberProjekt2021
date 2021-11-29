@@ -9,6 +9,13 @@ namespace NovemberProjekt2021
         // Texture2D playerTexture = Raylib.LoadTexture(@"Red_Wyvern.png");
         private int hp = 21;
 
+        public static Player player = new Player();
+
+        public Player()
+        {
+            Actor.actorQueue.Enqueue(this); //lägger till spelaren
+        }
+
         public int GetHp()
         {
             return hp;

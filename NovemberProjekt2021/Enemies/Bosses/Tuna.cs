@@ -6,15 +6,13 @@ namespace NovemberProjekt2021
     {
         public override bool TakeTurn()
         {
-            Player p = FindPlayer();
-
-            if (p.GetHp() > 10)
+            if (Player.player.GetHp() > 10)
             {
-                p.PlayerTakeDamage(5);
+                Player.player.PlayerTakeDamage(5);
             }
-            else if (p.GetHp() < 10)
+            else if (Player.player.GetHp() < 10)
             {
-                p.PlayerTakeDamage(2);
+                Player.player.PlayerTakeDamage(2);
             }
 
             return true;
