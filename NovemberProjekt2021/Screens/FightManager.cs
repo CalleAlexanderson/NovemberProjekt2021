@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 
 namespace NovemberProjekt2021
@@ -5,60 +6,58 @@ namespace NovemberProjekt2021
     public class FightManager
     {
 
-        static bool oneTime1 = true;
-        public static bool firstFight = true;
-        public static bool secondFight = false;
-        public static bool thirdFight = false;
+        static bool prepFight1 = true;
+        static bool prepFight2 = true;
+        static bool firstFight = true;
+        static bool secondFight = false;
+        static bool thirdFight = false;
+        public static new List<Actor> killList = new List<Actor>();
 
         public static void Fights()
         {
-            if (firstFight) //om firstFight är true så startar fight1
+            if (killList.Count < 3) //om firstFight är true så startar fight1
             {
-                secondFight = FightOne();
+                FightOne();
             }
 
-            else if (secondFight && Player.player.GetHp() < 10)
+            else if (killList.Count < 8 && killList.Count >= 3)
             {
-
+                FightTwo();
             }
-
-            // bool turnShouldEnd = true;
-
-            // Actor currentActor = Actor.actorQueue.Dequeue(); //gör den längst fram i kön till currentActor
-
-
-            // turnShouldEnd = currentActor.TakeTurn(); //håller kolla vems tur det är
-
-            // if (turnShouldEnd) //endar en turn och lägger saken längst bak i kön
-            // {
-            //     Actor.actorQueue.Enqueue(currentActor);
-            //     currentActor = Actor.actorQueue.Dequeue();
-            // }
         }
 
-        public static bool FightOne()
+        public static void FightOne()
         {
-            if (oneTime1)
+            if (prepFight1)
             {
                 Actor.actorQueue.Enqueue(new Graper());
                 Actor.actorQueue.Enqueue(new Tuna());
-                oneTime1 = false;
+                System.Console.WriteLine("prepdone");
+                prepFight1 = false;
             }
-            return true;
+
+            if (true)
+            {
+                System.Console.WriteLine("fightone");
+            }
         }
 
-        public static bool FightTwo()
+        public static void FightTwo()
         {
+            if (prepFight2)
+            {
+                Actor.actorQueue.Enqueue(new Tuna());
+                Actor.actorQueue.Enqueue(new Graper());
+                Actor.actorQueue.Enqueue(new Graper());
+                Actor.actorQueue.Enqueue(new Graper());
+                Actor.actorQueue.Enqueue(new Tuna());
+                prepFight2 = false;
+            }
 
-            Actor.actorQueue.Clear();
-            Actor.actorQueue.Enqueue(Player.player);
-
-            Actor.actorQueue.Enqueue(new Tuna());
-            Actor.actorQueue.Enqueue(new Graper());
-            Actor.actorQueue.Enqueue(new Graper());
-            Actor.actorQueue.Enqueue(new Graper());
-            Actor.actorQueue.Enqueue(new Tuna());
-            return true;
+            if (true)
+            {
+                System.Console.WriteLine("fighttwo");
+            }
         }
     }
 }

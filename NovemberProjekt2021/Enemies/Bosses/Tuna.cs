@@ -9,10 +9,12 @@ namespace NovemberProjekt2021
             if (Player.player.GetHp() > 10)
             {
                 Player.player.PlayerTakeDamage(5);
+                System.Console.WriteLine("tuna uses slam");
             }
             else if (Player.player.GetHp() < 10)
             {
                 Player.player.PlayerTakeDamage(2);
+                System.Console.WriteLine("tuna uses tackle");
             }
 
             return true;

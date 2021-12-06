@@ -7,24 +7,24 @@ namespace NovemberProjekt2021
     public class Player : Actor
     {
         // Texture2D playerTexture = Raylib.LoadTexture(@"Red_Wyvern.png");
-        private int hp = 21;
 
         public static Player player = new Player();
 
         public Player()
         {
+            Hp = 21;
             Actor.actorQueue.Enqueue(this); //lägger till spelaren
         }
 
         public int GetHp()
         {
-            return hp;
+            return Hp;
         }
 
         public int PlayerTakeDamage(int damage)
         {
-            hp = hp - damage;
-            return hp;
+            Hp = Hp - damage;
+            return Hp;
         }
 
         public override bool TakeTurn()
