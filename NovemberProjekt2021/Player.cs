@@ -31,10 +31,14 @@ namespace NovemberProjekt2021
         {
             Console.WriteLine("PlayerTurn");
             Console.WriteLine(GetHp());
-            string end = Console.ReadLine();
-            if (end == "endturn")
+            string input = Console.ReadLine();
+            if (input == "endturn")
             {
                 return true;
+            }
+            else if (input == "attack")
+            {
+                System.Console.WriteLine("Player attacked");
             }
             return false;
 

@@ -28,10 +28,8 @@ namespace NovemberProjekt2021
 
         public void update()
         {
-            if (death)
-            {
-                FightManager.killList.Add(this);
-            }
+            Death();
+            AddToKillList();
         }
 
         private void Death()
@@ -39,6 +37,14 @@ namespace NovemberProjekt2021
             if (this.Hp == 0)
             {
                 death = true;
+            }
+        }
+
+        private void AddToKillList()
+        {
+            if (death)
+            {
+                FightManager.killList.Add(this);
             }
         }
 
