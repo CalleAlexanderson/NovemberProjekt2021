@@ -19,6 +19,7 @@ namespace NovemberProjekt2021
 
             while (Player.player.GetHp() > 0)
             {
+                currentActor.update();
                 FightManager.Fights();
                 turnShouldEnd = currentActor.TakeTurn(); //håller kolla vems tur det är
 

@@ -39,6 +39,8 @@ namespace NovemberProjekt2021
             else if (input == "attack")
             {
                 System.Console.WriteLine("Player attacked");
+                actorQueue.ToArray()[0].TakeDamage(10);
+                Console.WriteLine(actorQueue.ToArray()[0]);
             }
             return false;
 

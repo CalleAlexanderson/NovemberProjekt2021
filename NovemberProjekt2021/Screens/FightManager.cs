@@ -35,11 +35,6 @@ namespace NovemberProjekt2021
                 System.Console.WriteLine("prepdone");
                 prepFight1 = false;
             }
-
-            if (true)
-            {
-                System.Console.WriteLine("fightone");
-            }
         }
 
         public static void FightTwo()

@@ -28,8 +28,14 @@ namespace NovemberProjekt2021
 
         public void update()
         {
+            System.Console.WriteLine("update");
             Death();
             AddToKillList();
+        }
+
+        public void TakeDamage(int damage)
+        {
+            Hp = Hp - damage;
         }
 
         private void Death()
@@ -40,7 +46,7 @@ namespace NovemberProjekt2021
             }
         }
 
-        private void AddToKillList()
+        public void AddToKillList()
         {
             if (death)
             {
